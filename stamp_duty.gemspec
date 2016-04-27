@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["James Doyley"]
   spec.email         = ["jdoyley@gmail.com"]
 
-  spec.summary       = %q{ A UK proerty stamp duty calculator }
+  spec.summary       = %q{ A UK property stamp duty calculator }
   spec.homepage      = "https://github.com/j-dexx/stamp_duty"
   spec.license       = "MIT"
 
