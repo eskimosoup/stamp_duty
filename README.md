@@ -1,8 +1,7 @@
 # StampDuty
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stamp_duty`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+StampDuty is a stamp duty calculator for the UK property market.  Currently only
+for residential property, and doesn't include the extra 3% for owning multiple properties
 
 ## Installation
 
@@ -22,7 +21,38 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+calc = StampDuty.for(275000)
+calc.calculate
+
+# .to_s("F") as returns a big decimal
+calc.stamp_duty.to_s("F") # => 3750.0
+```
+
+You can also can get each the amount in each band
+
+```ruby
+calc.band_amounts.each do |ba|
+ puts ba.description
+ puts ba.amount.to_s("F")
+ puts ba.percentage_rate
+end
+```
+
+Which would return
+
+Up to 125,000  
+0.0  
+0
+
+Above 125,000 and up to 250,000  
+2500.0  
+2
+
+Above 250,000 and up to 925,000  
+1250.0  
+5
+
 
 ## Development
 
@@ -32,7 +62,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/stamp_duty.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jdexx/stamp_duty.
 
 
 ## License
