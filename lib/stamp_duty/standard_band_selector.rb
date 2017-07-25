@@ -1,5 +1,5 @@
 module StampDuty
-  class BandSelector
+  class StandardBandSelector
     BAND_DATA = [
       { lower_bound: 0, upper_bound: 125000, percentage_rate: 0 },
       { lower_bound: 125000, upper_bound: 250000, percentage_rate: 2 },
