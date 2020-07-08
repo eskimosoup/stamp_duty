@@ -1,12 +1,19 @@
 module StampDuty
   class BuyToLetSecondHomeBandSelector
+    #BAND_DATA = [
+    #  { lower_bound: 0, upper_bound: 125_000, percentage_rate: 3 },
+    #  { lower_bound: 125_000, upper_bound: 250_000, percentage_rate: 5 },
+    #  { lower_bound: 250_000, upper_bound: 925_000, percentage_rate: 8 },
+    #  { lower_bound: 925_000, upper_bound: 1_500_000, percentage_rate: 13 },
+    #  { lower_bound: 1_500_000, percentage_rate: 15 }
+    #].freeze
+
     BAND_DATA = [
-      { lower_bound: 0, upper_bound: 125000, percentage_rate: 3 },
-      { lower_bound: 125000, upper_bound: 250000, percentage_rate: 5 },
-      { lower_bound: 250000, upper_bound: 925000, percentage_rate: 8 },
-      { lower_bound: 925000, upper_bound: 1500000, percentage_rate: 13 },
-      { lower_bound: 1500000, percentage_rate: 15 }
-    ]
+      { lower_bound: 0, upper_bound: 500_000, percentage_rate: 3 },
+      { lower_bound: 500_000, upper_bound: 925_000, percentage_rate: 8 },
+      { lower_bound: 925_000, upper_bound: 1_500_000, percentage_rate: 13 },
+      { lower_bound: 1_500_000, percentage_rate: 15 }
+    ].freeze
 
     attr_reader :price
 
@@ -15,7 +22,7 @@ module StampDuty
     end
 
     def bands
-      sorted_band_data.map{ |band_data| build_band(band_data) }
+      sorted_band_data.map { |band_data| build_band(band_data) }
     end
 
     private
@@ -25,11 +32,11 @@ module StampDuty
     end
 
     def sorted_band_data
-      band_data_for_price.sort_by{ |band| band[:lower_band] }.reverse!
+      band_data_for_price.sort_by { |band| band[:lower_band] }.reverse!
     end
 
     def band_data_for_price
-      BAND_DATA.select{ |band| price > band[:lower_bound] }
+      BAND_DATA.select { |band| price > band[:lower_bound] }
     end
   end
 end
