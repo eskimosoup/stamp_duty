@@ -1,13 +1,8 @@
 module StampDuty
   class FirstTimeBandSelector
-    #BAND_DATA = [
-    #  { lower_bound: 0, upper_bound: 300_000, percentage_rate: 0 },
-    #  { lower_bound: 300_000, upper_bound: 500_000, percentage_rate: 5 }
-    #].freeze
-
     BAND_DATA = [
-      { lower_bound: 0, upper_bound: 500_000, percentage_rate: 0 } #,
-      # { lower_bound: 500_000, upper_bound: 500_000, percentage_rate: 5 }
+     { lower_bound: 0, upper_bound: 300_000, percentage_rate: 0 },
+     { lower_bound: 300_000, upper_bound: 500_000, percentage_rate: 5 }
     ].freeze
 
     attr_reader :price

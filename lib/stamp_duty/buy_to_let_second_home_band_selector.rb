@@ -1,18 +1,11 @@
 module StampDuty
   class BuyToLetSecondHomeBandSelector
-    #BAND_DATA = [
-    #  { lower_bound: 0, upper_bound: 125_000, percentage_rate: 3 },
-    #  { lower_bound: 125_000, upper_bound: 250_000, percentage_rate: 5 },
-    #  { lower_bound: 250_000, upper_bound: 925_000, percentage_rate: 8 },
-    #  { lower_bound: 925_000, upper_bound: 1_500_000, percentage_rate: 13 },
-    #  { lower_bound: 1_500_000, percentage_rate: 15 }
-    #].freeze
-
     BAND_DATA = [
-      { lower_bound: 0, upper_bound: 500_000, percentage_rate: 3 },
-      { lower_bound: 500_000, upper_bound: 925_000, percentage_rate: 8 },
-      { lower_bound: 925_000, upper_bound: 1_500_000, percentage_rate: 13 },
-      { lower_bound: 1_500_000, percentage_rate: 15 }
+     { lower_bound: 0, upper_bound: 125_000, percentage_rate: 3 },
+     { lower_bound: 125_000, upper_bound: 250_000, percentage_rate: 5 },
+     { lower_bound: 250_000, upper_bound: 925_000, percentage_rate: 8 },
+     { lower_bound: 925_000, upper_bound: 1_500_000, percentage_rate: 13 },
+     { lower_bound: 1_500_000, percentage_rate: 15 }
     ].freeze
 
     attr_reader :price
