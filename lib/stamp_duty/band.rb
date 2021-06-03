@@ -1,11 +1,18 @@
 module StampDuty
   class Band
+    # NOTE:
+    #   From 1 April 2021, a 2% surcharge will be added to each of the rates below
+    #   for buyers who are non-UK residents
+
+    NON_UK_RESIDENT_SURCHARGE = 2
+
     attr_reader :lower_bound, :upper_bound, :percentage_rate
 
-    def initialize(lower_bound, upper_bound, percentage_rate)
+    def initialize(lower_bound, upper_bound, percentage_rate, uk_resident)
       @lower_bound = lower_bound
       @upper_bound = upper_bound
-      @percentage_rate = percentage_rate
+      @percentage_rate = (uk_resident ? percentage_rate : (percentage_rate + NON_UK_RESIDENT_SURCHARGE))
+      @uk_resident = uk_resident
     end
 
     def description
