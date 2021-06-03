@@ -22,6 +22,11 @@ module StampDuty
     #   { lower_bound: 1_500_000, percentage_rate: 12 }
     # ].freeze
 
+    # NOTE:
+    #   From 1 April 2021, a 2% surcharge will be added to each of the rates below
+    #   for buyers who are non-UK residents
+    NON_UK_RESIDENT_SURCHARGE = 2
+
     attr_reader :price, :uk_resident
 
     def initialize(price, uk_resident)
@@ -36,7 +41,8 @@ module StampDuty
     private
 
     def build_band(band_data)
-      StampDuty::Band.new(band_data[:lower_bound], band_data[:upper_bound], band_data[:percentage_rate], uk_resident)
+      percentage_rate = uk_resident ? band_data[:percentage_rate] : band_data[:percentage_rate] + NON_UK_RESIDENT_SURCHARGE
+      StampDuty::Band.new(band_data[:lower_bound], band_data[:upper_bound], percentage_rate)
     end
 
     def sorted_band_data
