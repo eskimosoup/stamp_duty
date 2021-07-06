@@ -5,22 +5,14 @@ module StampDuty
     #   https://www.kfh.co.uk/resources/buyers/stamp-duty-calculator
     #   https://www.moneysavingexpert.com/mortgages/stamp-duty/
 
-    # Effective from 1 July 2021 - 30 September 2021
+    # Effective from 1 October 2021
     BAND_DATA = [
-      { lower_bound: 0, upper_bound: 250_000, percentage_rate: 0 },
+      { lower_bound: 0, upper_bound: 125_000, percentage_rate: 0 },
+      { lower_bound: 125_000, upper_bound: 250_000, percentage_rate: 2 },
       { lower_bound: 250_000, upper_bound: 925_000, percentage_rate: 5 },
       { lower_bound: 925_000, upper_bound: 1_500_000, percentage_rate: 10 },
       { lower_bound: 1_500_000, percentage_rate: 12 }
     ].freeze
-
-    # Effective from 1 October 2021
-    # BAND_DATA = [
-    #   { lower_bound: 0, upper_bound: 125_000, percentage_rate: 0 },
-    #   { lower_bound: 125_000, upper_bound: 250_000, percentage_rate: 2 },
-    #   { lower_bound: 250_000, upper_bound: 925_000, percentage_rate: 5 },
-    #   { lower_bound: 925_000, upper_bound: 1_500_000, percentage_rate: 10 },
-    #   { lower_bound: 1_500_000, percentage_rate: 12 }
-    # ].freeze
 
     # NOTE:
     #   From 1 April 2021, a 2% surcharge will be added to each of the rates below
