@@ -12,7 +12,7 @@ module StampDuty
   def self.for(price, buy_to_let_second_home = false, first_time_buyer = false, uk_resident = true)
     if buy_to_let_second_home == true
       bands = StampDuty::BuyToLetSecondHomeBandSelector.new(price, uk_resident).bands
-    elsif first_time_buyer == true && price <= 500000
+    elsif first_time_buyer == true && price <= 625_001
       bands = StampDuty::FirstTimeBandSelector.new(price, uk_resident).bands
     else
       bands = StampDuty::StandardBandSelector.new(price, uk_resident).bands
