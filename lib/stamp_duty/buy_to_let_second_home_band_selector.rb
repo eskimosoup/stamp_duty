@@ -10,7 +10,8 @@ module StampDuty
 
     # @see https://www.gov.uk/stamp-duty-land-tax/print#if-youre-buying-your-first-home#rates-for-a-single-property
     BAND_DATA = [
-      { lower_bound: 0, upper_bound: 250_000, percentage_rate: 5 },
+      { lower_bound: 0, upper_bound: 125_000, percentage_rate: 5 },
+      { lower_bound: 125_000, upper_bound: 250_000, percentage_rate: 7 },
       { lower_bound: 250_000, upper_bound: 925_000, percentage_rate: 10 },
       { lower_bound: 925_000, upper_bound: 1_500_000, percentage_rate: 15 },
       { lower_bound: 1_500_000, percentage_rate: 17 }

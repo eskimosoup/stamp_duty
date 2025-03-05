@@ -6,8 +6,8 @@ module StampDuty
 
     # @see https://www.gov.uk/stamp-duty-land-tax/print#if-youre-buying-your-first-home
     BAND_DATA = [
-      { lower_bound: 0, upper_bound: 425_000, percentage_rate: 0 },
-      { lower_bound: 425_000, upper_bound: 625_000, percentage_rate: 5 }
+      { lower_bound: 0, upper_bound: 300_000, percentage_rate: 0 },
+      { lower_bound: 300_000, upper_bound: 500_000, percentage_rate: 5 }
     ].freeze
 
     # NOTE:
